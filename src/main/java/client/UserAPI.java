@@ -16,10 +16,15 @@ public class UserAPI extends BaseAPI {
 
 
         return request
+                .log()
+                .all()
                 .when()
-                .get(
-                "/api/users/"
-                + userId);
+                .get(...)
+                .then()
+                .log()
+                .all()
+                .extract()
+                .response();
 
     }
 
@@ -32,10 +37,15 @@ public class UserAPI extends BaseAPI {
 
 
         return request
-                .body(payload)
+                .log()
+                .all()
                 .when()
-                .post(
-                "/api/users");
+                .get(...)
+                .then()
+                .log()
+                .all()
+                .extract()
+                .response();
 
 
     }
@@ -49,12 +59,15 @@ public class UserAPI extends BaseAPI {
 
 
         return request
-                .body(payload)
+                .log()
+                .all()
                 .when()
-                .put(
-                "/api/users/"
-                + userId);
-
+                .get(...)
+                .then()
+                .log()
+                .all()
+                .extract()
+                .response();
 
     }
 
@@ -66,10 +79,15 @@ public class UserAPI extends BaseAPI {
 
 
         return request
+                .log()
+                .all()
                 .when()
-                .delete(
-                "/api/users/"
-                + userId);
+                .get(...)
+                .then()
+                .log()
+                .all()
+                .extract()
+                .response();
 
 
     }
