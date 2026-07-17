@@ -1,0 +1,66 @@
+name: REST Assured API Tests
+
+
+on:
+
+  push:
+
+    branches:
+      - main
+
+
+  pull_request:
+
+    branches:
+      - main
+
+
+
+jobs:
+
+
+  api-test:
+
+
+    runs-on: ubuntu-latest
+
+
+
+    steps:
+
+
+    - name: Checkout Code
+
+      uses: actions/checkout@v4
+
+
+
+    - name: Setup Java
+
+      uses: actions/setup-java@v4
+
+      with:
+
+        java-version: '17'
+
+        distribution: 'temurin'
+
+
+
+    - name: Execute API Tests
+
+      run: mvn clean test
+
+
+
+    - name: Upload Reports
+
+      if: always()
+
+      uses: actions/upload-artifact@v4
+
+      with:
+
+        name: api-test-results
+
+        path: target/
