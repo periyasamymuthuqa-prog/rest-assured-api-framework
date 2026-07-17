@@ -37,6 +37,18 @@ public void validateGetUserAPI(){
 
 
 
+    String firstName =
+            response
+            .jsonPath()
+            .getString(
+            "data.first_name");
+
+
+    Assert.assertEquals(
+            firstName,
+            "Janet");
+
+
 }
 
 
@@ -59,6 +71,19 @@ public void validateCreateUserAPI(){
     Assert.assertEquals(
             response.statusCode(),
             201);
+
+
+
+    String name =
+            response
+            .jsonPath()
+            .getString(
+            "name");
+
+
+    Assert.assertEquals(
+            name,
+            "Periyasamy");
 
 
 }
